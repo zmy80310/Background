@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <title>工业能耗后台系统</title>
+    <link href="../layui/css/layui.css" rel="stylesheet">
+    <style>
+        .layui-layout-admin .layui-logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .layui-layout-admin .layui-logo {
+            color: #fff;
+            background: #0085E8;
+        }
+
+        .pop {
+            /*position: absolute;*/
+            /*top: 15px;*/
+            /*left: -2%;*/
+            z-index: 999;
+            background: #fff;
+            box-sizing: border-box;
+            padding: 20px;
+            width: 100%;
+            margin-bottom: 30px;
+            /*margin-left: 2%;*/
+        }
+        .zhuzhuag{
+            width: 100%;
+            background: #fff;
+            /*margin-top: 150px;*/
+        }
+        .dian-index{
+            width: 100%;
+            box-sizing: border-box;
+            padding:15px 30px 0px 0px;
+            background: #fff;
+        }
+        .index-item{
+            width: 100%;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            flex-wrap:wrap;
+        }
+        .item-body{
+            width: 12%;
+            position: relative;
+            margin-bottom: 10px;
+            margin-left: 74px;
+        }
+        .item-body>img{
+            width: 100%;
+            height: 200px;
+        }
+        .number{
+            position: absolute;
+            top: 43px;
+            left: 90px;
+            font-size: 18px;
+            color: #fff;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header" style="background-color: #1E9FFF">
+
+        <div class="layui-logo">
+            <!--            <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3231098500,2076191373&fm=26&gp=0.jpg"-->
+            <!--                 alt="">-->
+            <cite>工业能耗后台系统</cite>
+        </div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img class="layui-nav-img" src="http://t.cn/RCzsdCq">
+                    贤心
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="../index.html">系统首页</a>
+                    <!--                    <dl class="layui-nav-child">-->
+                    <!--                        <dd><a href="javascript:;">首页</a></dd>-->
+                    <!--                    </dl>-->
+                </li>
+                <li class="layui-nav-item  layui-nav-itemed">
+                    <a href="javascript:;">实时监测</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="djiance.html"  class="layui-this">电表监测</a></dd>
+                        <dd><a href="sjiance.html">水表监测</a></dd>
+                        <dd><a href="njiance.html" >暖表监测</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">能耗分析</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="libiaoyi.html">报表打印</a></dd>
+                        <dd><a href="tabbal.html">能耗趋势分析</a></dd>
+                        <dd><a href="duibi.html" >能耗对比分析</a></dd>
+                        <dd><a href="tongbi.html">能耗同比分析</a></dd>
+                        <dd><a href="huanbi.html">能耗环比分析</a></dd>
+                        <dd><a href="nenghao.html">能耗排名分析</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="yonghu.html">用户管理</a></dd>
+                        <dd><a href="jiaose.html">角色管理</a></dd>
+                        <dd><a href="jianjie.html" >企业信息</a></dd>
+                    </dl>
+                </li>
+                <!--                <li class="layui-nav-item"><a href="">发布商品</a></li>-->
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body layui-card-body" style="padding: 0;background: #f2f2f2;box-sizing: border-box;padding: 20px;height: 100%;">
+        <!-- 内容主体区域 -->
+        <div style="width: 100%;" >
+            <div class="layui-form toolbar pop">
+                <div style="display: flex;justify-content: space-between;align-items:center;box-sizing: border-box;padding: 10px 0px;font-size:18px;background: #fff;border-bottom: 1px solid #f2f2f2;">
+                    <div>
+                        建筑电能
+                    </div>
+                    <div style="color: #333333;">
+                        <text style="font-size: 16px;margin-right: 10px;"><a href="../index.html">首页</a></text>/
+                        <text style="font-size: 16px;margin-rleft: 10px;">能耗趋势分析</text>
+                    </div>
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;width: 100%;">
+                    <label class="layui-form-label" style="width: 50px">搜索：</label>
+                    <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                            <option value="">直接选择或搜索选择</option>
+                            <option value="1">layer</option>
+                            <option value="2">form</option>
+                            <option value="3">layim</option>
+                            <option value="4">element</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                            <option value="">请选择建筑</option>
+                            <option value="1">layer</option>
+                            <option value="2">form</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                            <option value="">请选择建筑</option>
+                            <option value="1">layer</option>
+                            <option value="2">form</option>
+                        </select>
+                    </div>
+                    <input style="width: 100px;display: inline-block;" type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                    <button type="button" class="layui-btn layui-btn-normal"
+                            style="height: 35px;padding: 0 10px;margin-left: 10px;">
+                        <i class="layui-icon">&#xe615;</i> 搜索
+                    </button>
+                </div>
+                <div class="dian-index">
+                    <div class="index-item">
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                        <div class="item-body">
+                            <img src="../image/icon_electricity.png" alt="">
+                            <div class="number">2356</div>
+                            <div style="text-align: center;margin-top: 10px;">办公室事故照明1-10层</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../layui/layui.js"></script>
+<script src="../js/jQuery.js"></script>
+<script src="../js/echarts.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use(['element', 'laydate', 'table'], function () {
+        var element = layui.element
+            , laydate = layui.laydate
+            , table = layui.table;
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+    });
+</script>
+</body>
+</html>

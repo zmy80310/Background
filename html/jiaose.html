@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <title>工业能耗后台系统</title>
+    <link href="../layui/css/layui.css" rel="stylesheet">
+    <style>
+        .layui-layout-admin .layui-logo{
+            color: #fff;
+            background: #0085E8;
+        }
+        .pop{
+            background: #fff;
+            box-sizing: border-box;
+            padding: 10px 20px 0 0;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header" style="background-color: #1E9FFF">
+        <div class="layui-logo">
+            <!--            <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3231098500,2076191373&fm=26&gp=0.jpg" alt="">-->
+            <cite>工业能耗后台系统</cite>
+        </div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img class="layui-nav-img" src="http://t.cn/RCzsdCq">
+                    贤心
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="../index.html">系统首页</a>
+                    <!--                    <dl class="layui-nav-child">-->
+                    <!--                        <dd><a href="javascript:;">首页</a></dd>-->
+                    <!--                    </dl>-->
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">实时监测</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="djiance.html">电表监测</a></dd>
+                        <dd><a href="sjiance.html">水表监测</a></dd>
+                        <dd><a href="njiance.html" >暖表监测</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">能耗分析</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="libiaoyi.html">报表打印</a></dd>
+                        <dd><a href="tabbal.html">能耗趋势分析</a></dd>
+                        <dd><a href="duibi.html" >能耗对比分析</a></dd>
+                        <dd><a href="tongbi.html">能耗同比分析</a></dd>
+                        <dd><a href="huanbi.html">能耗环比分析</a></dd>
+                        <dd><a href="nenghao.html">能耗排名分析</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item  layui-nav-itemed">
+                    <a href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="yonghu.html" >用户管理</a></dd>
+                        <dd><a href="jiaose.html" class="layui-this">角色管理</a></dd>
+                        <dd><a href="jianjie.html" >企业信息</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body layui-card-body" style="padding: 0">
+        <!-- 内容主体区域 -->
+        <table class="layui-hide" id="test" lay-filter="test" >
+            <div class="layui-form toolbar pop" >
+<!--                <div class="layui-inline">-->
+                    <label class="layui-form-label" style="width: 50px;text-align: left;">搜索：</label>
+<!--                </div>-->
+                <input style="width: 100px;display: inline-block;margin-left: -30px;" type="text" name="title" required lay-verify="required" placeholder="请输入关键字" autocomplete="off" class="layui-input">
+                <button type="button" class="layui-btn layui-btn-normal" style="height: 35px;padding: 0 10px;">
+                    <i class="layui-icon">&#xe615;</i> 搜索
+                </button>
+                <button type="button" class="layui-btn layui-btn-normal"  style="height: 35px;padding: 0 10px;>
+                    <i class="layui-icon">&#xe608;</i> 添加
+                </button>
+            </div>
+            <script type="text/html" id="barDemo" >
+                <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
+                <a class="layui-btn layui-btn-xs  layui-btn-warm" lay-event="edit">重置密码</a>
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+            </script>
+        </table>
+
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+<script src="../layui/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use(['element', 'laydate', 'table'], function () {
+        var element = layui.element
+            , laydate = layui.laydate
+            , table = layui.table;
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+    });
+    layui.use('table', function () {
+        var table = layui.table;
+        //方法级渲染表格
+        // var statusTpl = function (d) { //名字需要和上面定义的名字对应上
+        //     var isCkecked = d.state == "1" ?"checked":"";
+        //     return '<input type="checkbox" lay-skin="switch" lay-text="正常|离线" '+ isCkecked +'> ';
+        // };
+        table.render({
+            elem: '#test'
+            ,url:"../json/tabban.json"
+            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            ,title: '用户数据表'
+            ,cols: [[
+                // {checkbox: true, fixed: true},
+                {field: 'id', title: 'ID', sort: true, fixed: 'left'}
+                // ,{field: 'username', title: '用户名'}
+                // ,{field: 'sex', title: '性别',  sort: true}
+                // ,{field: 'city', title: '城市'}
+                // ,{field: 'sign', title: '签名'}
+                ,{field: 'experience', title: '积分', sort: true}
+                ,{field: 'score', title: '评分', sort: true}
+                // ,{field:'state', title: '状态',align:'center',templet: statusTpl}
+                ,{fixed: 'right', title:'操作', toolbar: '#barDemo'}
+            ]]
+            ,id:'email_form'
+            ,page: true
+        });
+
+        //监听行工具事件
+        table.on('tool(test)', function(obj){
+            var data = obj.data;
+            //console.log(obj)
+            if(obj.event === 'del'){
+                layer.confirm('真的删除行么', function(index){
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if(obj.event === 'edit'){
+                layer.prompt({
+                    formType: 2
+                    ,value: data.email
+                }, function(value, index){
+                    obj.update({
+                        email: value
+                    });
+                    layer.close(index);
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <title>工业能耗后台系统</title>
+    <link href="../layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/xinxi.css">
+    <style>
+        .layui-layout-admin .layui-logo{
+            color: #fff;
+            background: #0085E8;
+        }
+        .pop{
+            background: #fff;
+            box-sizing: border-box;
+            padding: 10px 20px 0 0;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header" style="background-color: #1E9FFF">
+        <div class="layui-logo">
+            <!--            <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3231098500,2076191373&fm=26&gp=0.jpg" alt="">-->
+            <cite>工业能耗后台系统</cite>
+        </div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img class="layui-nav-img" src="http://t.cn/RCzsdCq">
+                    贤心
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="../index.html">系统首页</a>
+                    <!--                    <dl class="layui-nav-child">-->
+                    <!--                        <dd><a href="javascript:;">首页</a></dd>-->
+                    <!--                    </dl>-->
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">实时监测</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="djiance.html">电表监测</a></dd>
+                        <dd><a href="sjiance.html">水表监测</a></dd>
+                        <dd><a href="njiance.html" >暖表监测</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">能耗分析</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="libiaoyi.html">报表打印</a></dd>
+                        <dd><a href="tabbal.html">能耗趋势分析</a></dd>
+                        <dd><a href="duibi.html">能耗对比分析</a></dd>
+                        <dd><a href="tongbi.html">能耗同比分析</a></dd>
+                        <dd><a href="huanbi.html">能耗环比分析</a></dd>
+                        <dd><a href="nenghao.html">能耗排名分析</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item  layui-nav-itemed">
+                    <a href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="yonghu.html" >用户管理</a></dd>
+                        <dd><a href="jiaose.html" >角色管理</a></dd>
+                        <dd><a href="jianjie.html" class="layui-this">企业信息</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body layui-card-body" style="padding: 0 0 100px 0;background: #fff;height: 100%;width: 100%;">
+        <!-- 内容主体区域 -->
+        <form class="layui-form" action="">
+        <div class="wrap-body">
+            <div class="body-text">企业信息维护</div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>单位名称  </div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>所属地区  </div>
+                    <input  class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>法人单位代码  </div>
+                    <input  class="layui-input" type="text">
+                </div>
+                <div class="item-body2">
+                    <div>重点行业</div>
+                    <select name="city" lay-verify="">
+                        <option value="">请选择一个城市</option>
+                        <option value="010">北京</option>
+                        <option value="021">上海</option>
+                        <option value="0571">杭州</option>
+                    </select>
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body1">
+                    <div>重点类型  </div>
+                    <select name="city" lay-verify="">
+                        <option value="">请选择一个城市</option>
+                        <option value="010">北京</option>
+                        <option value="021">上海</option>
+                        <option value="0571">杭州</option>
+                    </select>
+                </div>
+                <div class="item-body2">
+                    <div>所属行业</div>
+                    <select name="city" lay-verify="">
+                        <option value="">请选择一个城市</option>
+                        <option value="010">北京</option>
+                        <option value="021">上海</option>
+                        <option value="0571">杭州</option>
+                    </select>
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body1">
+                    <div>所属领域</div>
+                    <select name="city" lay-verify="">
+                        <option value="">请选择一个城市</option>
+                        <option value="010">北京</option>
+                        <option value="021">上海</option>
+                        <option value="0571">杭州</option>
+                    </select>
+                </div>
+                <div class="item-body2">
+                    <div>所属领域</div>
+                    <select name="city" lay-verify="">
+                        <option value="">请选择一个城市</option>
+                        <option value="010">北京</option>
+                        <option value="021">上海</option>
+                        <option value="0571">杭州</option>
+                    </select>
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body1">
+                    <div>单位类型</div>
+                    <select name="city" lay-verify="">
+                        <option value="">请选择一个城市</option>
+                        <option value="010">北京</option>
+                        <option value="021">上海</option>
+                        <option value="0571">杭州</option>
+                    </select>
+                </div>
+                <div class="item-body2">
+                    <div>是否央企</div>
+                    <select name="city" lay-verify="">
+                        <option value="">请选择一个城市</option>
+                        <option value="010">北京</option>
+                        <option value="021">上海</option>
+                        <option value="0571">杭州</option>
+                    </select>
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div >单位地址</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>邮政编码 </div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>行政区代码</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>电子邮箱 </div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>企业网址</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>集团名称 </div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>集团地址</div>
+                    <input class="layui-input"  type="text">
+                </div>
+                <div class="item-body">
+                    <div>集团类型(备注) </div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>加工转换企业 </div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>回收利用企业 </div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-text" style="border-top: 1px solid #e5e5e5;margin-top: 20px;">人员信息维护</div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div >法人单位注册资金(万元) </div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>法人单位注册日期 </div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>法定代表人姓名</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>法定代表人电话 </div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>能源管理机构名称</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>传真(区号)</div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>主管节能领导名称</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>主管节能领导电话</div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>主管节能领导职务</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>主管节能领导职务</div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>能耗监测负责人姓名</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>能耗监测负责人手机</div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>能管负责任姓名</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>其他需要说明的情况</div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item" >
+                <div class="item-body">
+                    <div>填报负责人</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body1" style="box-sizing: border-box;padding-left: 12px;">
+                    <div>企业数据来源</div>
+                    <select name="city" lay-verify="">
+                        <option value="">请选择一个城市</option>
+                        <option value="010">北京</option>
+                        <option value="021">上海</option>
+                        <option value="0571">杭州</option>
+                    </select>
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>通过日期</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>认证机构 </div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+                    <div>经度(高德地图的经度)</div>
+                    <input class="layui-input" type="text">
+                </div>
+                <div class="item-body">
+                    <div>纬度(高德地图的纬度)</div>
+                    <input class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="body-text" style="border-top: 1px solid #e5e5e5;margin-top: 20px;">公司简介</div>
+            <div class="body-item">
+                <div class="item-body" id="test">
+                    <div>企业主图</div>
+                    <div class="layui-upload-drag" style="margin-left: 10px;width: 326px;height: 198px;padding:0;" id="test10">
+                        <div style="position: absolute;top: 69px;left: 0px;width: 100%;">
+                            <i class="layui-icon" style="color: #999;"></i>
+                            <p id="p">点击上传</p>
+                        </div>
+                        <div class="layui-hide" id="uploadDemoView" style="width: 100%;height: 100%;">
+<!--                            <hr>-->
+                            <img src="" alt="上传成功后渲染" style="width: 100%;height: 100%;">
+                        </div>
+                    </div>
+<!--                    <img style="width: 50%;height: 100px;margin-left: 10px;" id="demo1" src="../image/zanwu.jpg" alt="">-->
+                </div>
+                <div class="item-body">
+                    <div>简介:</div>
+                    <input class="layui-input" type="text" style="width: 500px;height:200px;margin-left: 10px;">
+                </div>
+            </div>
+            <div class="body-item">
+                <div class="item-body">
+
+                </div>
+                <div class="item-body" style="width: 77%;text-align: center;margin-top: 20px;">
+                    <button type="button" class="layui-btn layui-btn-lg layui-btn-normal" style="width: 220px;border-radius: 10px;">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+<script src="../layui/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use(['laydate','element','upload','form'], function () {
+        var element = layui.element
+        var laydate = layui.laydate;
+        var $ = layui.jquery
+            ,upload = layui.upload
+           ,form = layui.form;
+        //常规用法
+        laydate.render({
+            elem: '#test1'
+        });
+        //拖拽上传
+        upload.render({
+            elem: '#test10'
+            ,url: 'https://httpbin.org/post' //改成您自己的上传接口
+            ,done: function(res){
+                layer.msg('上传成功');
+                layui.$('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', res.files.file);
+                layui.$('.layui-icon').remove();
+                layui.$('#p').remove();
+                // layui.$('.layui-upload-drag').css('padding','0')
+                console.log(res)
+            }
+        });
+        //普通图片上传
+        // var uploadInst = upload.render({
+        //     elem: '#test'
+        //     ,url: 'https://httpbin.org/post' //改成您自己的上传接口
+        //     ,before: function(obj){
+        //         //预读本地文件示例，不支持ie8
+        //         obj.preview(function(index, file, result){
+        //             $('#demo1').attr('src', result); //图片链接（base64）
+        //         });
+        //     }
+        //     ,done: function(res){
+        //         //如果上传失败
+        //         if(res.code > 0){
+        //             return layer.msg('上传失败');
+        //         }
+        //         //上传成功
+        //     }
+        //     ,error: function(){
+        //         //演示失败状态，并实现重传
+        //         var demoText = $('#demoText');
+        //         demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+        //         demoText.find('.demo-reload').on('click', function(){
+        //             uploadInst.upload();
+        //         });
+        //     }
+        // });
+
+    });
+</script>
+</body>
+</html>

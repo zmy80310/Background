@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <title>工业能耗后台系统</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="./layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/swiper.css">
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=3.0&ak=qD3g2GT3Cfw9kvRcLdvxdXWgfMN8ws6x"></script>
+    <style>
+        .layui-layout-admin .layui-logo img{
+            width: 40px;
+            height: 40px;
+        }
+        .layui-layout-admin .layui-logo{
+            color: #fff;
+            background: #0085E8;
+        }
+        .pop{
+            background: #fff;
+            padding: 20px;
+        }
+        .BMap_cpyCtrl {
+            display: none;
+        }
+        .anchorBL {
+            display: none;
+        }
+        .btn{
+            box-sizing: border-box;
+            padding: 5px 10px;
+            background: #6DC1FF;
+            width: 100px;
+            text-align: center;
+            border-radius: 4px;
+            color: #fff;
+            margin-left: 130px;
+            font-family: '微软雅黑';
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header" style="background-color: #1E9FFF">
+                <div class="layui-logo">
+<!--                    <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3231098500,2076191373&fm=26&gp=0.jpg" alt="">-->
+                    <cite>工业能耗后台系统</cite>
+                </div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img class="layui-nav-img" src="http://t.cn/RCzsdCq">
+                    贤心
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed  layui-this">
+                    <a class="" href="javascript:;">系统首页</a>
+<!--                    <dl class="layui-nav-child">-->
+<!--                        <dd><a href="javascript:;">首页</a></dd>-->
+<!--                    </dl>-->
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">实时监测</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="./html/djiance.html">电表监测</a></dd>
+                        <dd><a href="./html/sjiance.html">水表监测</a></dd>
+                        <dd><a href="./html/njiance.html" >暖表监测</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">能耗分析</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="./html/libiaoyi.html">报表打印</a></dd>
+                        <dd><a href="./html/tabbal.html">能耗趋势分析</a></dd>
+                        <dd><a href="./html/duibi.html">能耗对比分析</a></dd>
+                        <dd><a href="./html/tongbi.html">能耗同比分析</a></dd>
+                        <dd><a href="./html/huanbi.html">能耗环比分析</a></dd>
+                        <dd><a href="./html/nenghao.html">能耗排名分析</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="./html/yonghu.html">用户管理</a></dd>
+                        <dd><a href="./html/jiaose.html">角色管理</a></dd>
+                        <dd><a href="./html/jianjie.html" >企业信息</a></dd>
+                    </dl>
+                </li>
+<!--                <li class="layui-nav-item"><a href="">发布商品</a></li>-->
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body layui-card-body" style="padding: 0;background: #f2f2f2;height: 100%;">
+        <div class="index-content">
+            <!--分项能耗  -->
+            <div class="index-right">
+                <div class="content-top">
+<!--                    <div class="left-x"></div>-->
+                    <div class="left-text1">能耗总量</div>
+                    <div class="btn"><a style="color: #fff;" href="./html/libiaoyi.html">手动填报</a></div>
+                </div>
+                <div class="content-item1">
+                    <div>
+                        <div style="font-weight: bold;">
+                            电年累积量:(Kw·h)
+                        </div>
+                        <div class="item-body" style="color: #ffe431"><text>123456</text></div>
+                    </div>
+                    <div>
+                        <div style="font-weight: bold;">
+                            水年累积量:(m³)
+                        </div>
+                        <div class="item-body" style="background:#58CFC8;color: #435eff;"><text>123456</text></div>
+                    </div>
+                   <div>
+                       <div style="font-weight: bold;">
+                           煤年累积量:(t)
+                       </div>
+                       <div class="item-body" style="background:#999999; color: #fff;"><text>12345611</text></div>
+                   </div>
+                </div>
+
+            </div>
+            <!--设备状态  -->
+            <div class="index-moddd" style="box-sizing: border-box;padding: 5px;">
+                <div id="allmap" style="width: 100%;height: 100%;">
+
+                </div>
+            </div>
+            <!--能耗总量  -->
+            <div class="index-right">
+                <div class="content-top">
+                    <div class="left-x"></div>
+                    <div class="left-text1">能耗占比</div>
+                </div>
+                <div class="right-text">
+                    <div class="name">综合能耗</div>
+                    <div class="sum" >12,277.65万</div>
+                </div>
+                <div class="xianshi" style="font-weight: bold;">标准煤（kgce）</div>
+                <div class="right-number">
+                    <div class="number-one">
+                        5000.65万
+                    </div>
+                    <div class="number-one">
+                       5000.65万
+                    </div>
+                    <div class="number-one">
+                        5000.65万
+                    </div>
+                </div>
+                <div id="echarts-item" style="width: 95%;height: 340px;"></div>
+            </div>
+            <!--            </div>-->
+        </div>
+        <!-- 内容主体区域 -->
+        <div class="index-header">
+            <div class="index-s">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="display: flex;justify-content: space-between;align-items: center;">
+                            <div class="content-left">
+                                <div class="content-top">
+<!--                                    <div class="left-x"></div>-->
+                                    <div class="left-text">能耗趋势图(电)</div>
+                                </div>
+                                <div class="content-item">
+                                    <div class="pop">年趋势(1-12月)</div>
+                                    <div class="npop">月趋势(1-31日)</div>
+                                    <div class="d-one" style="width: 100%;height: 50%;"></div>
+                                    <div class="d-three" style="width: 100%;height: 50%;"></div>
+                                </div>
+                            </div>
+                            <div class="content-left">
+                                <div class="content-top">
+<!--                                    <div class="left-x"></div>-->
+                                    <div class="left-text">能耗趋势图(水)</div>
+                                </div>
+                                <div class="content-item">
+                                    <div class="pop">年趋势(1-12月)</div>
+                                    <div class="npop">月趋势(1-31日)</div>
+                                    <div class="s-one" style="width: 100%;height: 50%;"></div>
+                                    <div class="s-three" style="width: 100%;height: 50%;"></div>
+                                </div>
+                            </div>
+                            <div class="content-left">
+                                <div class="content-top">
+<!--                                    <div class="left-x"></div>-->
+                                    <div class="left-text">能耗趋势图(煤)</div>
+                                </div>
+                                <div class="content-item">
+                                    <div class="pop">年趋势(1-12月)</div>
+                                    <div class="npop">月趋势(1-31日)</div>
+                                    <div class="m-one" style="width: 100%;height:50%;"></div>
+                                    <div class="m-three" style="width: 100%;height:50%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide" style="display: flex;justify-content: space-between;align-items: center;">
+                            <div class="content-left">
+                                <div class="content-top">
+<!--                                    <div class="left-x"></div>-->
+                                    <div class="left-text">能耗趋势图(天然气)</div>
+                                </div>
+                                <div class="content-item">
+                                    <div class="pop">年趋势(1-12月)</div>
+                                    <div class="npop">月趋势(1-31日)</div>
+                                    <div class="n-one" style="width: 100%;height: 50%;"></div>
+                                    <div class="n-three" style="width: 100%;height: 50%;"></div>
+                                </div>
+                            </div>
+                            <div class="content-left">
+                                <div class="content-top">
+<!--                                    <div class="left-x"></div>-->
+                                    <div class="left-text">能耗趋势图(柴油)</div>
+                                </div>
+                                <div class="content-item">
+                                    <div class="pop">年趋势(1-12月)</div>
+                                    <div class="npop">月趋势(1-31日)</div>
+                                    <div class="c-one" style="width: 100%;height: 50%;"></div>
+                                    <div class="c-three" style="width: 100%;height: 50%;"></div>
+                                </div>
+                            </div>
+                            <div class="content-left">
+                                <div class="content-top">
+<!--                                    <div class="left-x"></div>-->
+                                    <div class="left-text">能耗趋势图(重油)</div>
+                                </div>
+                                <div class="content-item">
+                                    <div class="pop">年趋势(1-12月)</div>
+                                    <div class="npop">月趋势(1-31日)</div>
+                                    <div class="t-one" style="width: 100%;height:50%;"></div>
+                                    <div class="t-three" style="width: 100%;height:50%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./layui/layui.js"></script>
+<script src="./js/tubiao.js"></script>
+<script src="./js/echarts.js"></script>
+<script src="./js/swiper.js"></script>
+<script src="./js/index.js"></script>
+<script>
+    layui.use('element', function () {
+        var element = layui.element
+    });
+    var mySwiper = new Swiper('.swiper-container',{
+        autoplay:{
+            disableOnInteraction: false,
+            delay: 5000,
+        },
+        // loop : true,
+    });
+
+    var myCharts = echarts.init(document.getElementById('echarts-item'));
+    options = {
+        legend: {
+            orient: 'vertical',
+            data: ['电', '水', '天然气'],
+            x:'right',
+            y:'center',
+            padding:[0,80,20,0]
+        },
+        //点击提示文字
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)",
+        },
+        //环形颜色
+        // color: ['#0C7BE3', '#5BA1E3', '#88B7E3'],
+        // 设置环形中间的数据
+        graphic: [{
+            type: 'text',
+            left: '25%',
+            top: '59%',
+            z: 10,
+            style: {
+                fill: '#1a1a1a',
+                text: '45679878',
+                font: '20px Microsoft YaHei'
+            }
+        }],
+        color : [ '#4cb3ff','#58CFC8', '#FF8295'],
+        series: [{
+            name: '访问来源',
+            type: 'pie',
+            hoverAnimation: false,
+            radius: ['40%', '65%'], //两个表示环：内半径,外半径
+            center: ['35%', '60%'],//左右，上下
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: true,
+                    position: 'outer',
+                    // formatter: '{d}%, {c} \n\n',
+                    //模板变量有 {a}, {b}，{c}，{d}，{e}，分别表示系列名，数据名，数据值等。
+                    formatter: "{d}%\n",
+                    borderWidth: 10,
+                    borderRadius: 4,
+                    padding: [90, -20],
+
+                },
+            },
+            //牵引线条颜色
+            labelLine: {
+                normal: {
+                    show: true,
+                    length: 15,
+                    length2: 20,
+                }
+            },
+            data: [
+                {value: 335, name: '电'},
+                {value: 310, name: '水'},
+                {value: 234, name: '天然气'},],
+        }]
+    };
+    myCharts.setOption(options);
+    // 百度地图API功能
+    map = new BMap.Map("allmap");
+    map.centerAndZoom(new BMap.Point(109.035712,32.69127),12);
+    map.enableScrollWheelZoom();        		//开启鼠标滑轮缩放
+    var zoomCtrl = new BMapGL.ZoomControl();
+    map.addControl(zoomCtrl);
+    var data_info = [[109.035712,32.69127,"地址：陕西省安康市市政府大楼"],
+    ];
+    var mapStyle = {
+        style:'googlelite'
+    }
+    map.setMapStyle(mapStyle);
+    var opts = {
+        width : 250,     // 信息窗口宽度
+        height: 80,     // 信息窗口高度
+        title : "信息窗口" , // 信息窗口标题
+        enableMessage:true//设置允许信息窗发送短息
+    };
+    for(var i=0;i<data_info.length;i++){
+        // var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));  // 创建标注
+        var content = data_info[i][2];
+        var myIcon = new BMap.Icon("./image/icon.png", new BMap.Size(30,40));
+        var marker2 = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]),{icon:myIcon});
+
+        map.addOverlay(marker2);               // 将标注添加到地图中
+        addClickHandler(content,marker2);
+    }
+    function addClickHandler(content,marker2){
+        marker2.addEventListener("click",function(e){
+            openInfo(content,e)}
+        );
+    }
+    function openInfo(content,e){
+        var p = e.target;
+        var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+        var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象
+
+        map.openInfoWindow(infoWindow,point); //开启信息窗口
+    }
+</script>
+</body>
+</html>

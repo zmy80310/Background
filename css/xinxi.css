@@ -1,0 +1,55 @@
+.wrap-body{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+}
+.body-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px 300px 10px 150px;
+
+}
+.item-body{
+    width: 45%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+}
+.item-body1{
+    width: 45%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+    margin-left: 38px !important;
+}
+.item-body2{
+    width: 45%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding-left:40px !important;
+}
+
+.item-body>div:nth-child(1){
+    width: 15%;
+    text-align: right;
+}
+input{
+    width: 330px !important;
+    margin-left: 10px;
+}
+.body-text{
+    box-sizing: border-box;
+    padding: 30px 0px 0px 0px;
+    font-family: '宋体';
+    font-weight: bold;
+    font-size: 20px;
+    color: #999;
+}

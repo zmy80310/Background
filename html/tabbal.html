@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <title>工业能耗后台系统</title>
+    <link href="../layui/css/layui.css" rel="stylesheet">
+    <style>
+        .layui-layout-admin .layui-logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .layui-layout-admin .layui-logo {
+            color: #fff;
+            background: #0085E8;
+        }
+
+        .pop {
+            /*position: absolute;*/
+            /*top: 15px;*/
+            /*left: -2%;*/
+            z-index: 999;
+            background: #fff;
+            box-sizing: border-box;
+            padding: 20px;
+            width: 100%;
+            margin-bottom: 30px;
+            /*margin-left: 2%;*/
+        }
+        .zhuzhuag{
+            width: 100%;
+            background: #fff;
+            /*margin-top: 150px;*/
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header" style="background-color: #1E9FFF">
+
+        <div class="layui-logo">
+<!--            <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3231098500,2076191373&fm=26&gp=0.jpg"-->
+<!--                 alt="">-->
+            <cite>工业能耗后台系统</cite>
+        </div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img class="layui-nav-img" src="http://t.cn/RCzsdCq">
+                    贤心
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="../index.html">系统首页</a>
+                    <!--                    <dl class="layui-nav-child">-->
+                    <!--                        <dd><a href="javascript:;">首页</a></dd>-->
+                    <!--                    </dl>-->
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">实时监测</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="djiance.html">电表监测</a></dd>
+                        <dd><a href="sjiance.html">水表监测</a></dd>
+                        <dd><a href="njiance.html" >暖表监测</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item  layui-nav-itemed">
+                    <a href="javascript:;">能耗分析</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="libiaoyi.html">报表打印</a></dd>
+                        <dd><a href="tabbal.html" class="layui-this">能耗趋势分析</a></dd>
+                        <dd><a href="duibi.html">能耗对比分析</a></dd>
+                        <dd><a href="tongbi.html">能耗同比分析</a></dd>
+                        <dd><a href="huanbi.html">能耗环比分析</a></dd>
+                        <dd><a href="nenghao.html">能耗排名分析</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">系统设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="yonghu.html">用户管理</a></dd>
+                        <dd><a href="jiaose.html">角色管理</a></dd>
+                        <dd><a href="jianjie.html" >企业信息</a></dd>
+                    </dl>
+                </li>
+<!--                <li class="layui-nav-item"><a href="">发布商品</a></li>-->
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body layui-card-body" style="padding: 0;background: #f2f2f2;box-sizing: border-box;padding: 20px;">
+        <!-- 内容主体区域 -->
+        <div style="width: 100%;" >
+            <div class="layui-form toolbar pop">
+                <div style="display: flex;justify-content: space-between;align-items:center;box-sizing: border-box;padding: 10px 0px;font-size:18px;background: #fff;border-bottom: 1px solid #f2f2f2;">
+                    <div>
+                        能耗趋势分析
+                    </div>
+                    <div style="color: #333333;">
+                        <text style="font-size: 16px;margin-right: 10px;"><a href="../index.html">首页</a></text>/
+                        <text style="font-size: 16px;margin-rleft: 10px;">能耗趋势分析</text>
+                    </div>
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;">
+                    <label class="layui-form-label" style="width: 50px">搜索：</label>
+                    <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                            <option value="">直接选择或搜索选择</option>
+                            <option value="1">layer</option>
+                            <option value="2">form</option>
+                            <option value="3">layim</option>
+                            <option value="4">element</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                            <option value="">请选择建筑</option>
+                            <option value="1">layer</option>
+                            <option value="2">form</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                            <option value="">请选择建筑</option>
+                            <option value="1">layer</option>
+                            <option value="2">form</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                            <option value="">请选择建筑</option>
+                            <option value="1">layer</option>
+                            <option value="2">form</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline" style="margin-top: 20px;">
+                    <label class="layui-form-label">验证日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <button type="button" class="layui-btn layui-btn-normal"
+                        style="height: 35px;padding: 0 10px;margin-left: 50px;margin-top: 20px;">
+                    <i class="layui-icon">&#xe615;</i> 搜索
+                </button>
+            </div>
+
+        </div>
+        <div class="zhuzhuag" style="box-sizing: border-box;padding: 20px;">
+            <div id="EchartZhu" style="width: 100%;height: 350px;"></div>
+        </div>
+<!--        <div class="layui-card">-->
+<!--            <div class="layui-card-header">柱形图</div>-->
+<!--            <div class="layui-card-body">-->
+
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+
+<!--    <div class="layui-footer">-->
+<!--        &lt;!&ndash; 底部固定区域 &ndash;&gt;-->
+<!--        © layui.com - 底部固定区域-->
+<!--    </div>-->
+</div>
+<script src="../layui/layui.js"></script>
+<script src="../js/jQuery.js"></script>
+<script src="../js/echarts.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use(['element', 'laydate', 'table'], function () {
+        var element = layui.element
+            , laydate = layui.laydate
+            , table = layui.table;
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+    });
+    var myChart = echarts.init(document.getElementById('EchartZhu'));
+    option = {
+        title: {
+            text: '电能能耗趁势分析',
+            subtext: 'From ExcelHome',
+            left:'center',
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['电能'],
+            left:'center',
+            bottom:'0',
+            padding:[20,0,0,0]
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                magicType: {type: ['line', 'bar']},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['1时', '2时', '3时', '4时', '5时', '6时', '7时','8时','9时','10时','11时','12时','13时','14时','15时','16时','17时','18时','19时','20时','21时','22时','23时','24时']
+        },
+        yAxis: {
+            type: 'value',
+        },
+        series: [
+            {
+                name: '电能',
+                type: 'line',
+                stack: '总量',
+                symbol: 'none',  //取消折点圆圈
+                smooth: true,
+                data: [220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290, 330, 310,234,345,123]
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+</body>
+</html>
